@@ -336,7 +336,7 @@ axtau = plt.subplot(gs[5 + 2], facecolor=axcolor)
 stau = Slider(axtau, 'Coincidence\nwindow (ns)', 0.5, 5, valinit=tau_c0)
 
 axdc = plt.subplot(gs[4 + 2], facecolor=axcolor)
-sdc = Slider(axdc, 'Dark counts\nper side', 0, 4e3, valinit=dc0,valfmt='%1.0f',valstep=1)
+sdc = Slider(axdc, 'Dark counts\nper side', 0, 4e3, valinit=dc0,valfmt='%1.0f')
 
 axrpair = plt.subplot(gs[7 + 2], facecolor=axcolor)
 srpair = Slider(axrpair, 'pair\ngeneration\nrate', 0, 2e6, valinit=r_pair0,valfmt='%1.0f')
