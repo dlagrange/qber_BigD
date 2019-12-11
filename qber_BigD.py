@@ -342,7 +342,7 @@ srpair = Slider(axrpair, 'pair\ngeneration\nrate', 0, 2e6, valinit=r_pair0, orie
 
 
 axtmp = plt.subplot(gs[10], facecolor=axcolor)
-stmp = Slider(axtmp, 'Detector\ntemp (°C) ' , -25, 30, valinit=tmp0, orientation = 'vertical',valfmt='%1.1f')
+stmp = Slider(axtmp, 'Detector\ntemp (C)' , -25, 30, valinit=tmp0, orientation = 'vertical',valfmt='%1.1f')
 
 
 axvis = plt.subplot(gs[6 + 2], facecolor=axcolor)
