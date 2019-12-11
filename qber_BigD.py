@@ -305,16 +305,17 @@ ccr_list = [c_ccr(r_pair, dc, tau_c * 1e-9, V, x) for x in T_list]
 
 # print ccr_list
 # def c_private(qt,rc,T):
+
 '''
 plotting code below
 '''
 # 10 
-gs = gridspec.GridSpec(1, 11,
-                       #height_ratios=[100],
-                       width_ratios =[50, 2,  15, 4,  15, 2,4,4,4,4,4],
+gs = gridspec.GridSpec(11, 1,
+                       height_ratios=[25,5,25,5,25,2,2,2,2,2,2],
+                       #width_ratios =[50, 2,  15, 4,  15, 2,4,4,4,4,4],
                        )
 
-gs.update(left=0.03, right=0.95, wspace=0.05)
+gs.update(left=0.09, right=0.92, wspace=0.05)
 
 # the main figure object
 fig = plt.figure(figsize=(25, 15))
@@ -332,21 +333,21 @@ axQBER.axis([-8, 0.9, 0, 0.5])
 
 
 axtau = plt.subplot(gs[5 + 2], facecolor=axcolor)
-stau = Slider(axtau, 'Coincidence\nwindow (ns)', 0.5, 5, valinit=tau_c0, orientation = 'vertical')
+stau = Slider(axtau, 'Coincidence\nwindow (ns)', 0.5, 5, valinit=tau_c0)
 
 axdc = plt.subplot(gs[4 + 2], facecolor=axcolor)
-sdc = Slider(axdc, 'Dark counts\nper side', 0, 4e3, valinit=dc0, orientation = 'vertical',valfmt='%1.0f',valstep=1)
+sdc = Slider(axdc, 'Dark counts\nper side', 0, 4e3, valinit=dc0,valfmt='%1.0f',valstep=1)
 
 axrpair = plt.subplot(gs[7 + 2], facecolor=axcolor)
-srpair = Slider(axrpair, 'pair\ngeneration\nrate', 0, 2e6, valinit=r_pair0, orientation = 'vertical',valfmt='%1.0f')
+srpair = Slider(axrpair, 'pair\ngeneration\nrate', 0, 2e6, valinit=r_pair0,valfmt='%1.0f')
 
 
 axtmp = plt.subplot(gs[10], facecolor=axcolor)
-stmp = Slider(axtmp, 'Detector\ntemp (C)' , -25, 30, valinit=tmp0, orientation = 'vertical',valfmt='%1.1f')
+stmp = Slider(axtmp, 'Detector\ntemp (C) ' , -25, 30, valinit=tmp0,valfmt='%1.1f')
 
 
 axvis = plt.subplot(gs[6 + 2], facecolor=axcolor)
-svis = Slider(axvis, 'Visibility', 0.88, 1, valinit=V0, orientation = 'vertical',valfmt='%1.3f')
+svis = Slider(axvis, 'Visibility', 0.88, 1, valinit=V0,valfmt='%1.3f')
 
 axccr = plt.subplot(gs[2], sharex=axQBER)
 axccr.set_ylabel('Classical bit rate (Mbps)')
@@ -409,7 +410,7 @@ stau.on_changed(update)
 srpair.on_changed(update)
 stmp.on_changed(update_temp)
 
-resetax = plt.axes([0.9, 0.95, 0.05, 0.04])
+resetax = plt.axes([0.87, 0.9, 0.05, 0.04])
 button = Button(resetax, 'Reset', color=axcolor, hovercolor='0.975')
 
     
